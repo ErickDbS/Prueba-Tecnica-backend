@@ -31,6 +31,7 @@ Server Running on Port: 5100
 
 # Probar endpoints
 GETS:
+
 http://localhost:5100/characters -> te muestra a todos los personajes de 10 en 10 paginados.
 
 http://localhost:5100/characters/search?{algun nombre de un personaje} -> busca a un personaje por su nombre
