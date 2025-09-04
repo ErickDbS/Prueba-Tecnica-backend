@@ -3,14 +3,16 @@ import mongoose from "mongoose";
 const speciesScheme = new mongoose.Schema(
     {
         name: {type: String, required: true},
-        clasification: String,
+        classification: String,
         designation: String,
-        height: Number,
+        average_height: Number,
         average_lifespan: Number,
-        eyes_color: String,
-        hair_color: String,
-        skin_color: String,
-        language: String
+        eye_colors: String,
+        hair_colors: String,
+        skin_colors: String,
+        language: String,
+        characters: [{type: mongoose.Schema.Types.ObjectId, ref: 'characters'}],
+        films: [{type: mongoose.Schema.Types.ObjectId, ref: 'films'}]
     }, { timestamps: true }
 )
 

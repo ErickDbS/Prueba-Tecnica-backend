@@ -6,11 +6,13 @@ const planetsSchema = new mongoose.Schema(
         diameter: Number,
         rotation_period: Number,
         orbital_period: Number,
-        gravity: Number,
+        gravity: String,
         population: Number,
         climate: String,
         terrain: String,
-        surface_water: Number
+        surface_water: Number,
+        residents: [{type: mongoose.Schema.Types.ObjectId, ref: "characters"}],
+        films: [{type: mongoose.Schema.Types.ObjectId, ref: 'films'}]
     }, { timestamps: true }
 )
 

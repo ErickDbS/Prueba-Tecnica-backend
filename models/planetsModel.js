@@ -14,12 +14,16 @@ class planetModel {
         return Planet.findById({ _id: new mongoose.Types.ObjectId(id)})
     }
 
-    async update(id, planet) {
-        return await Planet.findByIdAndUpdate({ _id: new mongoose.Types.ObjectId(id)}, planet)
+    async getIdAndName(){
+        return await Planet.find().select("_id name")
     }
 
-    async delete(id) {
-        return await Planet.findByIdAndDelete({ _id: new mongoose.Types.ObjectId(id)})
+    async update(id, planet) {
+        return await Planet.findByIdAndUpdate({ _id: new mongoose.Types.ObjectId(id)}, planet, {new: true})
+    }
+
+    async delete(id, name) {
+        return await Planet.findByIdAndDelete({ _id: new mongoose.Types.ObjectId(id)}, name)
     }
 }
 

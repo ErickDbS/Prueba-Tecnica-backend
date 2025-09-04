@@ -15,11 +15,11 @@ class characterModel {
     }
 
     getByName(name){
-        return Character.find({ name: name})
+        return Character.find({ name: { $regex: `.*${name}.*`, $options: 'i' } })
     }
 
     async update(id, character) {
-        return await Character.findByIdAndUpdate({ _id: new mongoose.Types.ObjectId(id)}, character)
+        return await Character.findByIdAndUpdate({ _id: new mongoose.Types.ObjectId(id)}, character, {new: true})
     }
 
     async delete(id) {

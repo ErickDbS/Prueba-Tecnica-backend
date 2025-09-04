@@ -34,11 +34,7 @@ class characterController {
 async getCharacterByName(req, res){
     try {
         const { name } = req.query;
-        if (!name) return res.status(400).json({ error: "Se requiere el nombre" });
-
-        const data = await charactersModel.getByName(name)
-            .select("-createdAt -updatedAt");
-
+        const data = await charactersModel.getByName(name).select("-createdAt -updatedAt");
         res.status(200).json(data);
     } catch (e) {
         console.error(e);
@@ -69,8 +65,8 @@ async getCharacterByName(req, res){
     async deleteCharacter(req, res){
         try {
             const { id } = req.params
-            const data = await charactersModel.delete(id)
-            res.status(206).json(data)
+            await charactersModel.delete(id)
+            res.status(206).json("Registro borrado exitosamente")
         } catch (e) {
             res.status(500).send(e)
         }
