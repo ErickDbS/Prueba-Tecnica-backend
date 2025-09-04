@@ -29,14 +29,19 @@ La base de datos ya está poblada.
 
 En tu terminal ejecuta:
 
+```bash
 npm install -> instala las dependencias
+```
 
+```bash
 node app.js -> ejecuta el proyecto
+```
 
 Si todo esta bien te debe de salir un mensaje como este:
 
+```bash
 Server Running on Port: 5100
-
+```
 # Probar endpoints
 
 GET
